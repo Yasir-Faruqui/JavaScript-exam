@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/dist/style.css" />
+    <title>Expense Manager</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center pt-3">Simple expense manager project</h1>
+      <form>
+        <div class="row pt-5">
+          <!-- Left-side coloms -->
+          <div class="col-md-6">
+            <h3>Add a new item:</h3>
+            <div class="row pt-5">
+              <div class="col-md-3">
+                <label for="cash">Type:</label>
+              </div>
+              <div class="col-md-3">
+                <select name="pay" id="pay">
+                  <option value=""></option>
+                  <option value="cash">Cash</option>
+                  <option value="card">Card</option>
+                  <option value="upi">UPI</option>
+                </select>
+                <span class="error-msg err-pay">Fill the detail</span>
+              </div>
+            </div>
+            <div class="row pt-5">
+              <div class="col-md-3">
+                <label for="name">Name:</label>
+              </div>
+              <div class="col-md-3">
+                <input type="text" placeholder="Add Name" id="user-name" />
+                <span class="error-msg err-name">Fill the detail</span>
+              </div>
+            </div>
+            <div class="row pt-5">
+              <div class="col-md-3">
+                <label for="currency">Currency:</label>
+              </div>
+              <div class="col-md-3">
+                <select name="currency-options" id="currency-options">
+                  <option value=""></option>
+                  <option value="inr">INR</option>
+                  <option value="usd">USD</option>
+                </select>
+                <span class="error-msg err-currency">Fill the detail</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right-side coloms -->
+          <div class="col-md-6">
+            <h3 class="add-friend-heading">
+              Add a new Friend
+              <i
+                class="fas fa-plus-circle circle pl-2"
+                data-toggle="modal"
+                data-target="#exampleModalCenter"
+              ></i>
+            </h3>
+
+            <div class="row left-side-cols pt-5">
+              <div class="col-md-3">
+                <label for="cash">Add Friends:</label>
+              </div>
+              <div class="col-md-3">
+                <select name="friends" id="friends" class="form-control-md">
+                  <option value=""></option>
+                  <option value="andy">Andy</option>
+                  <option value="sandy">Sandy</option>
+                  <option value="randy">Randy</option>
+                  <option value="mandy">Mandy</option>
+                </select>
+                <span class="error-msg err-friends">Fill the detail</span>
+              </div>
+            </div>
+            <div class="row left-side-cols pt-5">
+              <div class="col-md-3">
+                <label for="date">Date:</label>
+              </div>
+              <div class="col-md-3">
+                <input type="date" class="pr-3" id="date" />
+                <span class="error-msg err-date">Fill the detail</span>
+              </div>
+            </div>
+            <div class="row left-side-cols pt-5">
+              <div class="col-md-3"><label for="amount">Amount</label></div>
+              <div class="col-md-3">
+                <input
+                  type="number"
+                  placeholder="How much?"
+                  class="pr-3"
+                  id="amount"
+                />
+                <span class="error-msg err-amt">Fill the detail</span>
+              </div>
+            </div>
+          </div>
+          <button class="add-btn">Add a new expense</button>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="exampleModalCenter"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">
+                    Add a friend
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <label for="addFriend" style="color: #1b1b1b"
+                    >Add a friend</label
+                  ><br />
+                  <input
+                    type="text"
+                    placeholder="Add a friend"
+                    style="
+                      border: 1px solid #1b1b1b;
+                      width: 100%;
+                      padding: 10px 5px;
+                    "
+                    id="new-friend"
+                  />
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="button" class="btn btn-primary" id="add-friend">
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <!-- Table starts here -->
+      <div class="table-box text-center mt-5">
+        <table style="width: 100%; margin: 0">
+          <thead>
+            <div class="row">
+              <div class="col-md-6 table-col">
+                <label
+                  for="table-friends"
+                  style="color: #1b1b1b; font-weight: bold"
+                  >Filter by friends</label
+                >
+                <select
+                  name="friends"
+                  id="friends"
+                  class="form-control-md"
+                  style="
+                    padding: 0 20px;
+                    margin: 20px 5px;
+                    border: 1px solid #1a1a1a;
+                  "
+                >
+                  <option value="andy">Andy</option>
+                  <option value="sandy">Sandy</option>
+                  <option value="randy">Randy</option>
+                  <option value="mandy">Mandy</option>
+                </select>
+              </div>
+              <div class="col-md-6 table-col">
+                <label
+                  for="table-friends"
+                  style="color: #1b1b1b; font-weight: bold"
+                  >Currency</label
+                >
+                <select
+                  name="currencies"
+                  id="currencies"
+                  class="form-control-md"
+                  style="
+                    padding: 0 20px;
+                    margin: 20px 5px;
+                    border: 1px solid #1a1a1a;
+                  "
+                >
+                  <option value="inr">INR</option>
+                  <option value="usd">USD</option>
+                </select>
+              </div>
+            </div>
+          </thead>
+          <div class="row">
+            <div class="col-md">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Name</th>
+                  <th>Friends</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+            </div>
+          </div>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+  <script src="/dist/main.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"
+  ></script>
+</html>
